@@ -1,4 +1,5 @@
 import type { Component, JSX } from 'solid-js';
+import { Button } from './components/common';
 import { PercentChange } from './components/PercentChange';
 import { theme, setTheme } from './theme'
 
@@ -9,8 +10,11 @@ const App: Component = () => {
         <PercentChange />
       </div>
 
-      <button onClick={() => setTheme('dark')}>Dark</button>
-      <button onClick={() => setTheme('light')}>Light</button>
+      <div style={{ display: 'flex' }}>
+        <Button onClick={() => setTheme('dark')} variant='warning'>Dark</Button>
+        <Button onClick={() => setTheme('light')} variant='error'>Light</Button>
+        <Button variant='success' value='success' />
+      </div>
     </div>
   );
 };

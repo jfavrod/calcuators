@@ -20,8 +20,8 @@ export const PercentChange: Component = () => {
 
       <div style={inputs}>
         <div style={{ display: 'flex'}}>
-          <span style={label}>Start Value</span>
-          <span style={label}>End Value</span>
+          <Typography style={label}>Start Value</Typography>
+          <Typography style={label}>End Value</Typography>
         </div>
 
         <div style={{ display: 'flex' }}>
