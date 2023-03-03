@@ -1,6 +1,6 @@
 import { Component, createSignal, JSX } from 'solid-js';
-import { Styles } from '../types';
-import { TextInput, Typography } from './common';
+import { Styles } from '../../types';
+import { TextInput, Typography } from '../common';
 
 export const PercentChange: Component = () => {
   const [startValue, setStartValue] = createSignal<number>(0);

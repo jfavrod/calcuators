@@ -51,7 +51,16 @@ const applyDarkVariant = (base: JSX.CSSProperties, variant?: ButtonVariant) => {
   if (variant === 'error') {
     base['border-color'] = palette.red;
     base.color = palette.red;
-  } else if (variant === 'success') {
+  } else if (variant === 'info') {
+    base['border-color'] = palette.lightBlue;
+    base.color = palette.lightBlue;
+  } else if (variant === 'primary') {
+    base['border-color'] = palette.blue;
+    base.color = palette.blue;
+  } else if (variant === 'secondary') {
+    base.color = palette.white;
+    base['border-color'] = palette.silver;
+  }  else if (variant === 'success') {
     base['border-color'] = palette.green;
     base.color = palette.green;
   } else if (variant === 'warning') {
@@ -66,7 +75,16 @@ const applyLightVariant = (base: JSX.CSSProperties, variant?: ButtonVariant) => 
   if (variant === 'error') {
     base['background-color'] = palette.red;
     base['border-color'] = palette.red;
-  } else if (variant === 'success') {
+  } else if (variant === 'info') {
+    base['background-color'] = palette.lightBlue;
+    base['border-color'] = palette.lightBlue;
+  }  else if (variant === 'primary') {
+    base['background-color'] = palette.blue;
+    base['border-color'] = palette.blue;
+  } else if (variant === 'secondary') {
+    base['border-color'] = palette.silver;
+    base.color = palette.onyx;
+  }  else if (variant === 'success') {
     base['background-color'] = palette.green;
     base['border-color'] = palette.green;
   } else if (variant === 'warning') {

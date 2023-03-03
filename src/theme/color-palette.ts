@@ -1,5 +1,6 @@
 export const palette = {
-  blue: '#62929E',
+  blue: '#63B4D1',
+  lightBlue: '#86E1DE',
   gray: '#546A7B',
   green: '#317B22',
   onyx: '#393D3F',
