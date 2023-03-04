@@ -1,3 +1,4 @@
-export { Button } from './Button/Button';
-export { TextInput } from './Input/TextInput';
-export { Typography } from './Typography/Typography';
+export { Button } from './button/Button';
+export { NumberInput } from './input/NumberInput';
+export { TextInput } from './input/TextInput';
+export { Typography } from './typography/Typography';

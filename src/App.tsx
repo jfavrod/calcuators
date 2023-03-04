@@ -3,6 +3,7 @@ import { theme } from './theme';
 import { Sidebar, ThemeChanger } from 'components/template';
 import { SidebarProps } from 'components/template/Sidebar';
 import { Calculator } from 'components/calculators';
+import { CloseIcon } from 'components/common/icons';
 
 const App: Component = () => {
   const [ calculators, setCalculators ] = createSignal<Calculator[]>([]);
@@ -35,8 +36,8 @@ const App: Component = () => {
       <div style={content}>
         <For each={calculators()}>{({ Component, title }) => (
           <div style={calc}>
-            <div onClick={() => removeCalc(title)}>
-              <i class='fa-solid fa-xmark' />
+            <div onClick={() => removeCalc(title)} style={closeCalcIcon}>
+              <CloseIcon />
             </div>
 
             <Component />
@@ -49,6 +50,10 @@ const App: Component = () => {
 
 const calc: JSX.CSSProperties = {
   'max-width': '30rem'
+};
+
+const closeCalcIcon: JSX.CSSProperties = {
+  float: 'right'
 };
 
 const container: JSX.CSSProperties = {

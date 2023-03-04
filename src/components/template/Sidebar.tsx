@@ -3,6 +3,7 @@ import calculators from 'components/calculators';
 import { Component, createSignal, For, JSX } from 'solid-js';
 import { theme } from 'theme';
 import './template.css';
+import { CloseIcon } from 'components/common/icons';
 
 export interface SidebarProps {
   onCalculatorClick: (calc: Calculator) => unknown;
@@ -12,21 +13,21 @@ export const Sidebar: Component<SidebarProps> = (props) => {
   const [isOpen, setIsOpen] = createSignal(false);
 
   const closeIconClicked = () => {
-    console.log('close');
     setIsOpen(false);
   };
 
   return (
     <div style={getWrapperStyle()}>
       <div onClick={() => setIsOpen(!isOpen())} style={actuator}>
-        <i class='fa-bars fa-solid' />
+        <i class='fa-bars fa-solid' style={{ height: '1.5rem', width: '1.5rem' }} />
       </div>
 
       <div class='sidebar-anim' style={getContainerStyle(isOpen())}>
         <div style={getTopAreaStyle()}>
-          <div onClick={closeIconClicked} style={closeIcon}>
-            <i class='fa-xmark fa-solid' style={{ color: theme().primaryBackground }} />
-          </div>
+          <CloseIcon
+            onClick={() => closeIconClicked()}
+            style={{ ...closeIcon, color: theme().primaryBackground }}
+          />
         </div>
 
         <div style={contents}>
