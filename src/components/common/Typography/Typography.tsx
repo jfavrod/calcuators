@@ -7,15 +7,11 @@ export interface TypographyProps {
   variant?: TypographyVariant;
 }
 
-export const Typography: ParentComponent<TypographyProps> = (props) => {
-  const { children, style, variant } = props;
-
-  return (
-    <span style={{ ...getStyle(variant), ...style}}>
-      {children}
-    </span>
-  );
-};
+export const Typography: ParentComponent<TypographyProps> = (props) => (
+  <span style={{ ...getStyle(props.variant), ...props.style}}>
+    {props.children}
+  </span>
+);
 
 const getStyle = (variant?: TypographyVariant): JSX.CSSProperties => {
   const currentTheme = theme();
@@ -24,12 +20,17 @@ const getStyle = (variant?: TypographyVariant): JSX.CSSProperties => {
     'font-family': 'Roboto'
   };
 
-  if (variant === 'h2') {
+  if (variant && variant.charAt(0) === 'h') {
     base.color = currentTheme.primaryHeading,
     base['display'] = 'block';
-    base['margin-bottom'] = '0.5rem';
-    base['font-size'] = '1.25rem';
     base['font-weight'] = 'bold';
+    base['margin-bottom'] = '0.5rem';
+  }
+
+  if (variant === 'h2') {
+    base['font-size'] = '1.25rem';
+  } else if (variant === 'h3') {
+    base['font-size'] = '1.20rem';
   } else if (currentTheme.variant === 'dark') {
     base.color = palette.white;
   }

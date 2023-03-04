@@ -7,14 +7,16 @@ export interface TextInputProps extends InputProps {
 
 export const TextInput: Component<TextInputProps> = (props) => (
   <input
-    onFocus={props.onFocus}
-    onInput={props.onInput}
+    onFocus={(e) => props.onFocus && props.onFocus(e)}
+    onInput={(e) => props.onInput && props.onInput(e)}
     style={style}
     value={props.value}
   />
 );
 
 const style: JSX.CSSProperties = {
-  "border-radius": '0.25rem',
+  'border-radius': '0.25rem',
+  'font-family': 'Roboto',
+  'font-size': '1rem',
   padding: '0.5rem',
 };

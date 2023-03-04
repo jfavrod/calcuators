@@ -1,9 +1,9 @@
 import { JSX, ParentComponent } from 'solid-js';
-import { ButtonVariant } from './types';
-import { palette, theme } from 'theme'
+import { ButtonMouseEvent, ButtonVariant } from './types';
+import { palette, theme } from 'theme';
 
 export interface ButtonProps {
-  onClick?: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
+  onClick?: (e: ButtonMouseEvent) => unknown;
   value?: string;
   /** Default `primary`. */
   variant?: ButtonVariant;
@@ -12,7 +12,7 @@ export interface ButtonProps {
 export const Button: ParentComponent<ButtonProps> = (props) => {
   return (
     <button
-      onClick={props.onClick}
+      onClick={(e) => props.onClick && props.onClick(e)}
       style={getStyle(props.variant)}
     >
       {props.value || props.children}
@@ -22,7 +22,7 @@ export const Button: ParentComponent<ButtonProps> = (props) => {
 
 const getStyle = (variant?: ButtonVariant): JSX.CSSProperties => {
   const base: JSX.CSSProperties = {
-    "border-radius": '0.25rem',
+    'border-radius': '0.25rem',
     'font-family': 'Inter',
     'font-weight': 'bold',
     'padding-bottom': '0.75rem',

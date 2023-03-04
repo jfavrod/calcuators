@@ -1,6 +1,7 @@
-import { JSX } from 'solid-js/jsx-runtime';
+export type InputFocusEvent = FocusEvent & { currentTarget: HTMLInputElement; target: Element;}
+export type InputInputEvent = InputEvent & { currentTarget: HTMLInputElement; target: Element;};
 
 export interface InputProps {
-  onFocus?: JSX.EventHandlerUnion<HTMLInputElement, FocusEvent>;
-  onInput?: JSX.EventHandlerUnion<HTMLInputElement, InputEvent>;
+  onFocus?: (e: InputFocusEvent) => unknown;
+  onInput?: (e: InputInputEvent) => unknown;
 }
