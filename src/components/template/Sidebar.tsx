@@ -4,6 +4,7 @@ import { Component, createSignal, For, JSX } from 'solid-js';
 import { theme } from 'theme';
 import './template.css';
 import { CloseIcon } from 'components/common/icons';
+import { Typography } from 'components/common';
 
 export interface SidebarProps {
   onCalculatorClick: (calc: Calculator) => unknown;
@@ -36,7 +37,9 @@ export const Sidebar: Component<SidebarProps> = (props) => {
               props.onCalculatorClick(calc);
               setIsOpen(false);
             }}>
-              {calc.title}
+              <Typography>
+                {calc.title}
+              </Typography>
             </div>
           )}
           </For>
