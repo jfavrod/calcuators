@@ -4,27 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <link rel="shortcut icon" type="image/ico" href="/src/assets/favicon.ico" />
+
+    <link rel="icon" type="image/ico" href="/src/assets/favicon.ico" />
+    <link rel="apple-touch-icon" type="image/png" href="/src/assets/apple-touch-icon.png" sizes="192x192" />
+    <link rel="mask-icon" type="image/png" href="/src/assets/apple-touch-icon.png" color="#FFFFFF" />
     <title>Solid App</title>
-    <script src="/src/assets/icons/fontawesome-free/js/fontawesome.min.js" async></script>
-    <script src="/src/assets/icons/fontawesome-free/js/solid.min.js" async></script>
-    <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
     <script src="/src/index.tsx" type="module"></script>
-
-
-    <script>
-    window.addEventListener('load', () => {
-      console.log(navigator);
-      if ('serviceWorker' in navigator) {
-        console.log('sw register');
-        navigator.serviceWorker.register('/service-worker.js');
-      }
-    });
-    </script>
   </body>
 </html>
