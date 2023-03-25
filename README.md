@@ -7,7 +7,18 @@ The motivation for this project is to learn [SolidJS](https://www.solidjs.com/).
 Deployment
 ----------
 To deploy the app, there is a Dockerfile that's written to serve the
-built Solidjs app. For HTTPS, you MUST place the SSL certificate and
+built Solidjs app.
+
+
+### Build
+```
+npm install
+npm run build
+```
+
+
+### HTTPS
+For HTTPS (which is required), you MUST place the SSL certificate and
 private key files into the ssl directory. Those files MUST be named:
 
 * certificate > fullchain.pem

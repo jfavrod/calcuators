@@ -1,6 +1,7 @@
 import { InputFocusEvent } from 'components/common/input/InputProps';
 import { Component, createSignal, JSX } from 'solid-js';
 import { NumberInput, Typography } from '../common';
+import { Calculator } from './Calculator';
 
 export const PercentChange: Component = () => {
   const [startValue, setStartValue] = createSignal<number>(0);
@@ -13,11 +14,7 @@ export const PercentChange: Component = () => {
   };
 
   return (
-    <div style={container}>
-      <Typography style={{ 'padding-bottom': '0.75rem' }} variant='h2'>
-        Percent Change
-      </Typography>
-
+    <Calculator title='Percent Change'>
       <div style={inputs}>
         <div style={inputGroup}>
           <Typography>Start Value</Typography>
@@ -41,15 +38,8 @@ export const PercentChange: Component = () => {
       <Typography style={{ 'text-align': 'center' }} variant='h3'>
         Change: {Math.round( ((endValue() || 0) - (startValue() || 0)) / (startValue() || 1) * 100 )}%
       </Typography>
-    </div>
+    </Calculator>
   );
-};
-
-const container: JSX.CSSProperties ={
-  'align-items': 'center',
-  display: 'flex',
-  'flex-direction': 'column',
-  width: '100%'
 };
 
 const inputs: JSX.CSSProperties = {
